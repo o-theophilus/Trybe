@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Material" path="res://scene/main_area/tiles.material" id="1"]
+
+[node name="CSGCombiner" type="CSGCombiner3D"]
+material_override = ExtResource("1")
+use_collision = true
+
+[node name="CSGBox" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -6.1489)
+material_override = ExtResource("1")
+size = Vector3(20, 0.5, 20)
+
+[node name="CSGBox3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.60601, -22.7425)
+material_override = ExtResource("1")
+size = Vector3(20, 0.5, 20)
+
+[node name="CSGBox2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.458, 0.7, -0.0559974)
+material_override = ExtResource("1")
+
+[node name="CSGBox4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, -3.36136, -0.512553, -7.6)
+material_override = ExtResource("1")
+size = Vector3(3.56906, 1, 12.6529)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.668819, 0.743425, 0, -0.743425, 0.668819, 0, 4.90867, 0)

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tools/cam_rig.gd" id="1_e4fha"]
+
+[node name="cam_rig" type="Node3D" node_paths=PackedStringArray("target")]
+script = ExtResource("1_e4fha")
+target = NodePath("")
+
+[node name="rot_y" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="pos_xy" type="Node3D" parent="rot_y"]
+unique_name_in_owner = true
+
+[node name="rot_x" type="Node3D" parent="rot_y/pos_xy"]
+unique_name_in_owner = true
+
+[node name="spring" type="SpringArm3D" parent="rot_y/pos_xy/rot_x"]
+unique_name_in_owner = true
+
+[node name="pos_z" type="Node3D" parent="rot_y/pos_xy/rot_x/spring"]
+unique_name_in_owner = true

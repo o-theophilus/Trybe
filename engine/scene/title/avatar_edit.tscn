@@ -1,0 +1,248 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Theme" uid="uid://c5d6f6k6j0387" path="res://tools/theme.tres" id="1_mc8ce"]
+[ext_resource type="Script" path="res://scene/title/avatar_edit.gd" id="2_mu3vn"]
+[ext_resource type="Script" path="res://scene/title/avatar_edit.form.gd" id="3_1lqt3"]
+[ext_resource type="PackedScene" path="res://tools/cam_rig.tscn" id="4_n2g44"]
+[ext_resource type="PackedScene" uid="uid://275nsp8owbai" path="res://avatar/avatar.player.tscn" id="5_2rdx5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wi647"]
+size = Vector3(0.1, 1, 0.1)
+
+[node name="avatar_edit" type="Panel"]
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_mc8ce")
+script = ExtResource("2_mu3vn")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="form" type="VBoxContainer" parent="BoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_1lqt3")
+
+[node name="tabs" type="HBoxContainer" parent="BoxContainer/MarginContainer/form"]
+layout_mode = 2
+alignment = 1
+
+[node name="user" type="Button" parent="BoxContainer/MarginContainer/form/tabs"]
+layout_mode = 2
+text = "User
+"
+
+[node name="character" type="Button" parent="BoxContainer/MarginContainer/form/tabs"]
+layout_mode = 2
+text = "Character
+"
+
+[node name="panels" type="VBoxContainer" parent="BoxContainer/MarginContainer/form"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="user" type="VBoxContainer" parent="BoxContainer/MarginContainer/form/panels"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ig" type="VBoxContainer" parent="BoxContainer/MarginContainer/form/panels/user"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"BoxContainer_v1"
+
+[node name="Label" type="Label" parent="BoxContainer/MarginContainer/form/panels/user/ig"]
+layout_mode = 2
+text = "Name"
+
+[node name="user_name" type="LineEdit" parent="BoxContainer/MarginContainer/form/panels/user/ig"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Player Name"
+
+[node name="ig2" type="VBoxContainer" parent="BoxContainer/MarginContainer/form/panels/user"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"BoxContainer_v1"
+
+[node name="Label" type="Label" parent="BoxContainer/MarginContainer/form/panels/user/ig2"]
+layout_mode = 2
+text = "Age"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer/MarginContainer/form/panels/user/ig2"]
+layout_mode = 2
+
+[node name="day" type="SpinBox" parent="BoxContainer/MarginContainer/form/panels/user/ig2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 31.0
+value = 1.0
+
+[node name="month" type="OptionButton" parent="BoxContainer/MarginContainer/form/panels/user/ig2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 12
+selected = 0
+popup/item_0/text = "Janurary"
+popup/item_0/id = 1
+popup/item_1/text = "Feburary"
+popup/item_1/id = 2
+popup/item_2/text = "March"
+popup/item_2/id = 3
+popup/item_3/text = "April"
+popup/item_3/id = 4
+popup/item_4/text = "May"
+popup/item_4/id = 5
+popup/item_5/text = "June"
+popup/item_5/id = 6
+popup/item_6/text = "July"
+popup/item_6/id = 7
+popup/item_7/text = "August"
+popup/item_7/id = 8
+popup/item_8/text = "September"
+popup/item_8/id = 9
+popup/item_9/text = "October"
+popup/item_9/id = 10
+popup/item_10/text = "November"
+popup/item_10/id = 11
+popup/item_11/text = "December"
+popup/item_11/id = 12
+
+[node name="year" type="SpinBox" parent="BoxContainer/MarginContainer/form/panels/user/ig2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1900.0
+max_value = 2023.0
+value = 2001.0
+exp_edit = true
+rounded = true
+
+[node name="character" type="VBoxContainer" parent="BoxContainer/MarginContainer/form/panels"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ig" type="VBoxContainer" parent="BoxContainer/MarginContainer/form/panels/character"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"BoxContainer_v1"
+
+[node name="Label" type="Label" parent="BoxContainer/MarginContainer/form/panels/character/ig"]
+layout_mode = 2
+text = "Character Name"
+
+[node name="player_name" type="LineEdit" parent="BoxContainer/MarginContainer/form/panels/character/ig"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Character Name"
+
+[node name="ig2" type="VBoxContainer" parent="BoxContainer/MarginContainer/form/panels/character"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"BoxContainer_v1"
+
+[node name="Label" type="Label" parent="BoxContainer/MarginContainer/form/panels/character/ig2"]
+layout_mode = 2
+text = "Character Gender
+"
+
+[node name="gender" type="HSlider" parent="BoxContainer/MarginContainer/form/panels/character/ig2"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+
+[node name="ig3" type="VBoxContainer" parent="BoxContainer/MarginContainer/form/panels/character"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"BoxContainer_v1"
+
+[node name="Label" type="Label" parent="BoxContainer/MarginContainer/form/panels/character/ig3"]
+layout_mode = 2
+text = "Character Skin Tone
+"
+
+[node name="skin_tone" type="HSlider" parent="BoxContainer/MarginContainer/form/panels/character/ig3"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+
+[node name="buttons" type="HBoxContainer" parent="BoxContainer/MarginContainer/form"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="prev" type="Button" parent="BoxContainer/MarginContainer/form/buttons"]
+layout_mode = 2
+text = "Prev
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer/MarginContainer/form/buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="next" type="Button" parent="BoxContainer/MarginContainer/form/buttons"]
+layout_mode = 2
+text = "Next
+"
+
+[node name="save" type="Button" parent="BoxContainer/MarginContainer/form/buttons"]
+layout_mode = 2
+text = "Save"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SubViewport" type="SubViewport" parent="BoxContainer/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+use_occlusion_culling = true
+size = Vector2i(566, 648)
+render_target_update_mode = 4
+
+[node name="cam_rig" parent="BoxContainer/SubViewportContainer/SubViewport" node_paths=PackedStringArray("cam", "target") instance=ExtResource("4_n2g44")]
+cam = NodePath("Camera3D")
+target = NodePath("../avatar_player")
+orbit_alt = false
+orbit_drag_mouse_left = true
+pan_speed = 0.2
+pan_y_max = 1.5
+pan_y_min = 0.5
+pan_y_default = 1.0
+zoom_speed = 0.5
+zoom_default = 1.5
+
+[node name="Camera3D" type="Camera3D" parent="BoxContainer/SubViewportContainer/SubViewport/cam_rig"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="BoxContainer/SubViewportContainer/SubViewport/cam_rig/Camera3D"]
+
+[node name="avatar_player" parent="BoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("5_2rdx5")]
+unique_name_in_owner = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BoxContainer/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.519228, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoxContainer/SubViewportContainer/SubViewport/StaticBody3D"]
+shape = SubResource("BoxShape3D_wi647")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="BoxContainer/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5276, 0)

@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c5d6f6k6j0387"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bndji"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[resource]
+BoxContainer/constants/separation = 20
+BoxContainer_v1/base_type = &"BoxContainer"
+BoxContainer_v1/constants/separation = 10
+Label/font_sizes/font_size = 20
+LineEdit/font_sizes/font_size = 20
+LineEdit/styles/normal = SubResource("StyleBoxFlat_bndji")
+MarginContainer/constants/margin_bottom = 40
+MarginContainer/constants/margin_left = 40
+MarginContainer/constants/margin_right = 40
+MarginContainer/constants/margin_top = 40

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dy6lvulbfxhwe"]
+
+[ext_resource type="PackedScene" uid="uid://bemlisktybwws" path="res://avatar/avatar.tscn" id="1_jvk8f"]
+[ext_resource type="Script" path="res://avatar/avatar.cpu.gd" id="2_eaico"]
+
+[sub_resource type="Animation" id="Animation_5vdtg"]
+resource_name = "armatureAction"
+length = 0.0416667
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_djd32"]
+_data = {
+"armatureAction": SubResource("Animation_5vdtg")
+}
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_lbdj4"]
+
+[node name="avatar_cpu" instance=ExtResource("1_jvk8f")]
+script = ExtResource("2_eaico")
+gender = 0.0
+skin_tone = 0.0
+
+[node name="AnimationPlayer" parent="actor" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_djd32")
+}
+
+[node name="anim_tree" parent="." index="2"]
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_lbdj4")
+
+[editable path="actor"]

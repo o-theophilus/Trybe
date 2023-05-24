@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxmns06k7gxg0"]
+
+[ext_resource type="Script" path="res://scene/world_machine/world_machine.gd" id="1_vngqy"]
+[ext_resource type="Theme" uid="uid://c5d6f6k6j0387" path="res://tools/theme.tres" id="2_3p530"]
+[ext_resource type="Script" path="res://scene/world_machine/level_ui.gd" id="3_uywql"]
+
+[node name="world_machine" type="Node"]
+script = ExtResource("1_vngqy")
+
+[node name="ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_3p530")
+script = ExtResource("3_uywql")
+
+[node name="pause" type="MarginContainer" parent="ui"]
+layout_mode = 0
+offset_right = 135.0
+offset_bottom = 111.0
+
+[node name="pause" type="Button" parent="ui/pause"]
+layout_mode = 2
+text = "pause
+"
+
+[node name="panel" type="Panel" parent="ui"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="ui/panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ui/panel/CenterContainer"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="ui/panel/CenterContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ui/panel/CenterContainer/MarginContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/panel/CenterContainer/MarginContainer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ui/panel/CenterContainer/MarginContainer/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="resume" type="Button" parent="ui/panel/CenterContainer/MarginContainer/PanelContainer2/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Resume"
+
+[node name="quit" type="Button" parent="ui/panel/CenterContainer/MarginContainer/PanelContainer2/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"

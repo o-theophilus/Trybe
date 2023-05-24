@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://avatar/bin/pocket.gd" id="1_dn4j5"]
+
+[node name="asset" type="Node3D"]
+script = ExtResource("1_dn4j5")
+
+[node name="top" type="MeshInstance3D" parent="."]
+skeleton = NodePath("")
+
+[node name="bottom" type="MeshInstance3D" parent="."]
+skeleton = NodePath("")
+
+[node name="shoe" type="MeshInstance3D" parent="."]
+skeleton = NodePath("")

@@ -1,0 +1,62 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Environment" uid="uid://wwe48e176nxo" path="res://scene/main_area/env.tres" id="1_xmm2u"]
+[ext_resource type="Script" path="res://scene/main_area/main.gd" id="1_y8fre"]
+[ext_resource type="PackedScene" uid="uid://b1kyb26wc7i43" path="res://interactable/models/jacket.blend" id="2_j184l"]
+[ext_resource type="PackedScene" path="res://scene/main_area/stage.tscn" id="3_3dcx0"]
+[ext_resource type="Material" uid="uid://2vnvnqdaq2c0" path="res://interactable/glow.tres" id="3_n321b"]
+[ext_resource type="PackedScene" uid="uid://dlygqkn5x3li4" path="res://interactable/models/timbs.blend" id="4_ldv3k"]
+[ext_resource type="PackedScene" uid="uid://xk5k5v8atp3m" path="res://interactable/models/short.blend" id="5_s5mip"]
+[ext_resource type="Script" path="res://tools/player_controller.gd" id="6_86gef"]
+[ext_resource type="PackedScene" uid="uid://275nsp8owbai" path="res://avatar/avatar.player.tscn" id="8_tx4ht"]
+[ext_resource type="PackedScene" uid="uid://dy6lvulbfxhwe" path="res://avatar/avatar.cpu.tscn" id="9_b476s"]
+[ext_resource type="PackedScene" path="res://tools/cam_rig.tscn" id="9_k4wvd"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_y8fre")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_xmm2u")
+
+[node name="CSGCombiner" parent="." instance=ExtResource("3_3dcx0")]
+
+[node name="##############################2" type="Node" parent="."]
+
+[node name="jacket" parent="." instance=ExtResource("2_j184l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.08511, 0.215147, -4.26976)
+type = "top"
+highlight_glow = ExtResource("3_n321b")
+
+[node name="short" parent="." instance=ExtResource("5_s5mip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.215147, -1.83144)
+type = "bottom"
+highlight_glow = ExtResource("3_n321b")
+
+[node name="timbs4" parent="." instance=ExtResource("4_ldv3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35363, 0.2, -4.65383)
+type = "shoe"
+highlight_glow = ExtResource("3_n321b")
+
+[node name="##############################" type="Node" parent="."]
+
+[node name="player_coltrol" type="Node" parent="."]
+script = ExtResource("6_86gef")
+
+[node name="cam_rig" parent="." node_paths=PackedStringArray("cam", "target") instance=ExtResource("9_k4wvd")]
+cam = NodePath("Camera3D")
+target = NodePath("../player")
+orbit_auto = true
+orbit_alt = false
+pan_shift = false
+pan_y_max = 2.0
+pan_y_default = 1.7
+zoom_ctrl = false
+
+[node name="Camera3D" type="Camera3D" parent="cam_rig"]
+
+[node name="player" parent="." instance=ExtResource("8_tx4ht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.2, 0)
+collision_layer = 1
+
+[node name="cpu_player" parent="." instance=ExtResource("9_b476s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.89089, 0.2, 1)

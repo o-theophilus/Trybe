@@ -1,0 +1,214 @@
+[gd_scene load_steps=5 format=3 uid="uid://brmf4g7bwb47s"]
+
+[ext_resource type="Theme" uid="uid://c5d6f6k6j0387" path="res://tools/theme.tres" id="1_hgu6p"]
+[ext_resource type="Script" path="res://scene/title/main.gd" id="2_jdq4w"]
+[ext_resource type="PackedScene" path="res://scene/title/avatar_edit.tscn" id="3_krp44"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6owvc"]
+bg_color = Color(0.164706, 0.164706, 0.164706, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+theme = ExtResource("1_hgu6p")
+script = ExtResource("2_jdq4w")
+
+[node name="title" type="Panel" parent="."]
+visible = false
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6owvc")
+
+[node name="MarginContainer" type="MarginContainer" parent="title"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="title/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="title/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"title"
+text = "TRYBE"
+
+[node name="to_auth" type="Button" parent="title/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "Next"
+
+[node name="auth" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="auth"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="auth/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TabContainer" type="TabContainer" parent="auth/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tab_alignment = 1
+
+[node name="Login" type="TabBar" parent="auth/HBoxContainer2/MarginContainer/TabContainer"]
+layout_mode = 2
+tab_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Login"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="login" type="VBoxContainer" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Login/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="username" type="VBoxContainer" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Login/MarginContainer/login"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"BoxContainer_v1"
+
+[node name="Label" type="Label" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Login/MarginContainer/login/username"]
+layout_mode = 2
+text = "Username / Email"
+
+[node name="input" type="LineEdit" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Login/MarginContainer/login/username"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Username / Email"
+
+[node name="password" type="VBoxContainer" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Login/MarginContainer/login"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"BoxContainer_v1"
+
+[node name="Label" type="Label" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Login/MarginContainer/login/password"]
+layout_mode = 2
+text = "Password"
+
+[node name="input" type="LineEdit" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Login/MarginContainer/login/password"]
+layout_mode = 2
+placeholder_text = "password"
+
+[node name="submit" type="Button" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Login/MarginContainer/login"]
+layout_mode = 2
+text = "Submit"
+
+[node name="Signup" type="TabBar" parent="auth/HBoxContainer2/MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+tab_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Signup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="signup" type="VBoxContainer" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Signup/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="name" type="VBoxContainer" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Signup/MarginContainer/signup"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"BoxContainer_v1"
+
+[node name="Label" type="Label" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Signup/MarginContainer/signup/name"]
+layout_mode = 2
+text = "Full Name"
+
+[node name="input" type="LineEdit" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Signup/MarginContainer/signup/name"]
+layout_mode = 2
+placeholder_text = "Full Name"
+
+[node name="username" type="VBoxContainer" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Signup/MarginContainer/signup"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"BoxContainer_v1"
+
+[node name="Label" type="Label" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Signup/MarginContainer/signup/username"]
+layout_mode = 2
+text = "Username / Email"
+
+[node name="input" type="LineEdit" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Signup/MarginContainer/signup/username"]
+layout_mode = 2
+placeholder_text = "Username / Email"
+
+[node name="password" type="VBoxContainer" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Signup/MarginContainer/signup"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"BoxContainer_v1"
+
+[node name="Label" type="Label" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Signup/MarginContainer/signup/password"]
+layout_mode = 2
+text = "Password"
+
+[node name="input" type="LineEdit" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Signup/MarginContainer/signup/password"]
+layout_mode = 2
+placeholder_text = "Password"
+secret = true
+
+[node name="Confirm_password" type="VBoxContainer" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Signup/MarginContainer/signup"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"BoxContainer_v1"
+
+[node name="Label" type="Label" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Signup/MarginContainer/signup/Confirm_password"]
+layout_mode = 2
+text = "Confirm Password"
+
+[node name="input" type="LineEdit" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Signup/MarginContainer/signup/Confirm_password"]
+layout_mode = 2
+placeholder_text = "Confirm Password"
+secret = true
+
+[node name="submit" type="Button" parent="auth/HBoxContainer2/MarginContainer/TabContainer/Signup/MarginContainer/signup"]
+layout_mode = 2
+text = "Submit"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="auth/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="avatar_edit" parent="." instance=ExtResource("3_krp44")]
+layout_mode = 1

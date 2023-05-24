@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://275nsp8owbai"]
+
+[ext_resource type="PackedScene" uid="uid://bemlisktybwws" path="res://avatar/avatar.tscn" id="1_ctkhp"]
+[ext_resource type="Script" path="res://avatar/avatar.player.gd" id="2_08g0m"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_u8ln1"]
+
+[node name="avatar_player" instance=ExtResource("1_ctkhp")]
+collision_layer = 32
+script = ExtResource("2_08g0m")
+
+[node name="anim_tree" parent="." index="2"]
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_u8ln1")
+
+[editable path="avatar"]
