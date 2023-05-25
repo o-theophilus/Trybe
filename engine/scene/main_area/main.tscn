@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=12 format=3 uid="uid://byf8t547asikh"]
 
 [ext_resource type="Environment" uid="uid://wwe48e176nxo" path="res://scene/main_area/env.tres" id="1_xmm2u"]
 [ext_resource type="Script" path="res://scene/main_area/main.gd" id="1_y8fre"]
-[ext_resource type="PackedScene" uid="uid://b1kyb26wc7i43" path="res://interactable/models/jacket.blend" id="2_j184l"]
+[ext_resource type="PackedScene" uid="uid://drkrfa8cp7hqo" path="res://interactable/models/jacket.blend" id="2_j184l"]
 [ext_resource type="PackedScene" path="res://scene/main_area/stage.tscn" id="3_3dcx0"]
 [ext_resource type="Material" uid="uid://2vnvnqdaq2c0" path="res://interactable/glow.tres" id="3_n321b"]
 [ext_resource type="PackedScene" uid="uid://dlygqkn5x3li4" path="res://interactable/models/timbs.blend" id="4_ldv3k"]
@@ -57,6 +57,7 @@ zoom_ctrl = false
 [node name="player" parent="." instance=ExtResource("8_tx4ht")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.2, 0)
 collision_layer = 1
+material = null
 
 [node name="cpu_player" parent="." instance=ExtResource("9_b476s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.89089, 0.2, 1)

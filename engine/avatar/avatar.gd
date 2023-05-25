@@ -8,16 +8,11 @@ var cam_rotation = Vector3.ZERO
 var is_running = false
 var input_dir = Vector2.ZERO
 
-
 var player:bool = false
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-
-@export var material:ShaderMaterial
-
 func _ready():
-	material = material.duplicate()
-	$avatar/armature/GeneralSkeleton/body["material_override"] = material
+	pass
 
 
 func _physics_process(delta):
@@ -49,5 +44,6 @@ func set_cam_rotation(value):
 	cam_rotation = value
 func set_gender(value):
 	$avatar/armature/GeneralSkeleton/body["blend_shapes/female"] = value
+	$avatar/armature/GeneralSkeleton/body["instance_shader_parameters/gender"] = value
 func set_skin_tone(value):
-	$avatar/armature/GeneralSkeleton/body["material_override"]["shader_parameter/skin_tone"] = value
+	$avatar/armature/GeneralSkeleton/body["instance_shader_parameters/tone"] = value

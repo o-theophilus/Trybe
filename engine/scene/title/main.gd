@@ -7,7 +7,7 @@ func _ready():
 	%signup/submit.pressed.connect(change_screen.bind("avatar_edit"))
 	%login/submit.pressed.connect(preload_scene)
 	%signup/submit.pressed.connect(preload_scene)
-	$avatar_edit.saved_avatar.connect(next_scene)
+	$avatar_edit.player_data_saved.connect(next_scene)
 	change_screen("title")
 
 
@@ -20,10 +20,8 @@ func change_screen(screen_name):
 func preload_scene():
 	world_machine.next_scene = preload("res://scene/main_area/main.tscn")
 
+
 func next_scene():
 	world_machine.change_scene(world_machine.next_scene)
-
-
-
 
 

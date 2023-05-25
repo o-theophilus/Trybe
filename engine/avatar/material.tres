@@ -36,7 +36,9 @@ default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, Vector3(0.5
 op_type = 3
 
 [sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_fh658"]
-parameter_name = "skin_tone"
+parameter_name = "tone"
+qualifier = 2
+hint = 1
 default_value_enabled = true
 default_value = 1.0
 
@@ -72,7 +74,7 @@ render_mode depth_draw_always, cull_disabled, alpha_to_coverage_and_one;
 
 uniform sampler2D tex_frg_9 : source_color;
 uniform sampler2D tex_frg_2 : source_color;
-uniform float skin_tone = 1;
+instance uniform float tone : hint_range(0, 1) = 1;
 uniform sampler2D tex_frg_5;
 uniform sampler2D tex_frg_11;
 uniform sampler2D tex_frg_4;
@@ -92,7 +94,7 @@ void fragment() {
 
 
 // FloatParameter:17
-	float n_out17p0 = skin_tone;
+	float n_out17p0 = tone;
 
 
 // Mix:10
@@ -156,7 +158,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-610.853, 850.369)
+graph_offset = Vector2(-722.657, 352.021)
 modes/depth_draw = 1
 modes/cull = 2
 flags/alpha_to_coverage_and_one = true
@@ -170,7 +172,7 @@ nodes/fragment/4/position = Vector2(-420, 1660)
 nodes/fragment/5/node = SubResource("VisualShaderNodeTexture_euvrl")
 nodes/fragment/5/position = Vector2(-420, 1400)
 nodes/fragment/7/node = SubResource("VisualShaderNodeFloatFunc_tok2c")
-nodes/fragment/7/position = Vector2(300, 1520)
+nodes/fragment/7/position = Vector2(200, 1560)
 nodes/fragment/9/node = SubResource("VisualShaderNodeTexture_gsbo8")
 nodes/fragment/9/position = Vector2(-420, 1140)
 nodes/fragment/10/node = SubResource("VisualShaderNodeMix_o128o")
@@ -178,7 +180,7 @@ nodes/fragment/10/position = Vector2(80, 1200)
 nodes/fragment/11/node = SubResource("VisualShaderNodeTexture_x8i5j")
 nodes/fragment/11/position = Vector2(-200, 1400)
 nodes/fragment/12/node = SubResource("VisualShaderNodeMix_ycihl")
-nodes/fragment/12/position = Vector2(80, 1480)
+nodes/fragment/12/position = Vector2(-40, 1480)
 nodes/fragment/13/node = SubResource("VisualShaderNodeTexture_as4g6")
 nodes/fragment/13/position = Vector2(-200, 1660)
 nodes/fragment/14/node = SubResource("VisualShaderNodeMix_nm0gp")

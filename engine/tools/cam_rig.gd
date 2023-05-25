@@ -86,17 +86,30 @@ func _process(delta):
 	global_position = target.global_position
 	move_delta *= delta
 
+#	if (
+#		Input.is_key_pressed(KEY_ALT) and orbit_alt
+#		or (
+#			orbit_auto and is_autoing
+#			and not Input.is_key_pressed(KEY_SHIFT)
+#			and not Input.is_key_pressed(KEY_CTRL)
+#		)
+#		or (
+#			orbit_drag_mouse_left and is_dragging
+#			and not Input.is_key_pressed(KEY_SHIFT)
+#			and not Input.is_key_pressed(KEY_CTRL)
+#		)
+#	):
 	if (
 		Input.is_key_pressed(KEY_ALT) and orbit_alt
 		or (
-			orbit_auto and is_autoing
-			and not Input.is_key_pressed(KEY_SHIFT)
-			and not Input.is_key_pressed(KEY_CTRL)
-		)
-		or (
-			orbit_drag_mouse_left and is_dragging
-			and not Input.is_key_pressed(KEY_SHIFT)
-			and not Input.is_key_pressed(KEY_CTRL)
+			not (
+				pan_shift and Input.is_key_pressed(KEY_SHIFT)
+				or zoom_ctrl and Input.is_key_pressed(KEY_CTRL)
+			)
+			and (
+				orbit_auto and is_autoing
+				or orbit_drag_mouse_left and is_dragging
+			)
 		)
 	):
 		orbit(move_delta)

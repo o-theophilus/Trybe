@@ -1,21 +1,44 @@
-[gd_scene load_steps=17 format=3 uid="uid://bemlisktybwws"]
+[gd_scene load_steps=29 format=3 uid="uid://d3kbx2eyhvcw2"]
 
 [ext_resource type="Script" path="res://avatar/avatar.gd" id="1_3gmnj"]
-[ext_resource type="Shader" uid="uid://d007egkmefy8k" path="res://avatar/material.tres" id="2_vvmai"]
 [ext_resource type="PackedScene" uid="uid://cqrcch452sxe3" path="res://avatar/model/avatar.blend" id="3_ocvlu"]
+[ext_resource type="Shader" path="res://avatar/shader.gdshader" id="4_bfywh"]
+[ext_resource type="Texture2D" uid="uid://cggoxtiq37mra" path="res://avatar/model/textures/albedo_female_dark.png" id="4_j38b0"]
 [ext_resource type="AnimationLibrary" uid="uid://x27l34o2s17d" path="res://avatar/animation/idle.blend" id="4_qkkbm"]
 [ext_resource type="AnimationLibrary" uid="uid://cvyq5bffoigrj" path="res://avatar/animation/jog.blend" id="5_8u8k5"]
+[ext_resource type="Texture2D" uid="uid://uru2nvwwt7ib" path="res://avatar/model/textures/albedo_female_light.png" id="5_iwp6g"]
 [ext_resource type="AnimationLibrary" uid="uid://ohqnqta130oi" path="res://avatar/animation/run.blend" id="6_id3gr"]
+[ext_resource type="Texture2D" uid="uid://nsoxfj8x4c5h" path="res://avatar/model/textures/albedo_male_dark.png" id="6_n3joc"]
 [ext_resource type="AnimationLibrary" uid="uid://451vmdlpo7cn" path="res://avatar/animation/walk.blend" id="7_w860n"]
+[ext_resource type="Texture2D" uid="uid://brk0p3brt6axv" path="res://avatar/model/textures/albedo_male_light.png" id="7_xi3m3"]
 [ext_resource type="Script" path="res://avatar/animation/anim_player.gd" id="8_8i44l"]
+[ext_resource type="Texture2D" uid="uid://bpxiwobe3xd36" path="res://avatar/model/textures/gloss_female.png" id="8_h8djh"]
+[ext_resource type="Texture2D" uid="uid://b4vi70qmjjyj1" path="res://avatar/model/textures/gloss_male.png" id="9_gjmxu"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://dkopoyfxrtf2y" path="res://avatar/animation/root.tres" id="9_rgrpu"]
+[ext_resource type="Texture2D" uid="uid://beai5q5r3x0wc" path="res://avatar/model/textures/mask_bra.png" id="10_bkbwd"]
 [ext_resource type="Script" path="res://avatar/animation/anim_tree.gd" id="10_s01m8"]
+[ext_resource type="Texture2D" uid="uid://ccf1c1hlc3kdo" path="res://avatar/model/textures/normal_female.png" id="10_ynh2h"]
 [ext_resource type="Script" path="res://avatar/interactor.gd" id="11_dfvb5"]
+[ext_resource type="Texture2D" uid="uid://bqm6y3rychjd5" path="res://avatar/model/textures/normal_male.png" id="11_i7gai"]
+[ext_resource type="Texture2D" uid="uid://d1dbj8n732ckg" path="res://avatar/model/textures/mask_pant.png" id="11_nyp5l"]
+[ext_resource type="Texture2D" uid="uid://dgpvfqeqw8rul" path="res://avatar/model/textures/specular_female.png" id="12_yi7n3"]
+[ext_resource type="Texture2D" uid="uid://bjrwc5d8qbhjn" path="res://avatar/model/textures/specular_male.png" id="13_0xeal"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_igrlu"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_swcms"]
 render_priority = 0
-shader = ExtResource("2_vvmai")
-shader_parameter/skin_tone = 0.0
+shader = ExtResource("4_bfywh")
+shader_parameter/albedo_male_dark = ExtResource("6_n3joc")
+shader_parameter/albedo_male_light = ExtResource("7_xi3m3")
+shader_parameter/albedo_female_dark = ExtResource("4_j38b0")
+shader_parameter/albedo_female_light = ExtResource("5_iwp6g")
+shader_parameter/normal_male = ExtResource("11_i7gai")
+shader_parameter/normal_female = ExtResource("10_ynh2h")
+shader_parameter/gloss_male = ExtResource("9_gjmxu")
+shader_parameter/gloss_female = ExtResource("8_h8djh")
+shader_parameter/specular_male = ExtResource("13_0xeal")
+shader_parameter/specular_female = ExtResource("12_yi7n3")
+shader_parameter/mask_pant = ExtResource("11_nyp5l")
+shader_parameter/mask_bra = ExtResource("10_bkbwd")
 
 [sub_resource type="Animation" id="Animation_t24b3"]
 resource_name = "armatureAction"
@@ -36,9 +59,12 @@ height = 1.8
 [node name="avatar" type="CharacterBody3D"]
 velocity = Vector3(0, -8.16666, 0)
 script = ExtResource("1_3gmnj")
-material = SubResource("ShaderMaterial_igrlu")
 
 [node name="avatar" parent="." instance=ExtResource("3_ocvlu")]
+
+[node name="body" parent="avatar/armature/GeneralSkeleton" index="0"]
+material_override = SubResource("ShaderMaterial_swcms")
+instance_shader_parameters/private = false
 
 [node name="AnimationPlayer" parent="avatar" index="1"]
 libraries = {

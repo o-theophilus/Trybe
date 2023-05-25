@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://dr7tw7j0fjhim"]
 
 [ext_resource type="Theme" uid="uid://c5d6f6k6j0387" path="res://tools/theme.tres" id="1_mc8ce"]
 [ext_resource type="Script" path="res://scene/title/avatar_edit.gd" id="2_mu3vn"]
-[ext_resource type="Script" path="res://scene/title/avatar_edit.form.gd" id="3_1lqt3"]
 [ext_resource type="PackedScene" path="res://tools/cam_rig.tscn" id="4_n2g44"]
 [ext_resource type="PackedScene" uid="uid://275nsp8owbai" path="res://avatar/avatar.player.tscn" id="5_2rdx5"]
 
@@ -35,7 +34,6 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("3_1lqt3")
 
 [node name="tabs" type="HBoxContainer" parent="BoxContainer/MarginContainer/form"]
 layout_mode = 2
@@ -131,7 +129,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 min_value = 1900.0
 max_value = 2023.0
-value = 2001.0
+value = 2010.0
 exp_edit = true
 rounded = true
 
@@ -237,6 +235,7 @@ zoom_default = 1.5
 
 [node name="avatar_player" parent="BoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("5_2rdx5")]
 unique_name_in_owner = true
+material = null
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BoxContainer/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.519228, 0)
